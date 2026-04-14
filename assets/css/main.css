@@ -3945,11 +3945,13 @@ input, select, textarea {
 
 		}
 
-/* Footer */
 
+/* =========================
+   FOOTER BASE
+========================= */
 
 #footer {
-	background-color: #f5f5f5;
+	background: transparent !important;
 	color: #717981;
 	width: 100%;
 	max-width: 72rem;
@@ -3958,6 +3960,8 @@ input, select, textarea {
 	position: relative;
 	z-index: 2;
 	display: block;
+	box-shadow: none !important;
+	border: none !important;
 }
 
 /* CONTENEDOR PRINCIPAL */
@@ -3967,19 +3971,15 @@ input, select, textarea {
 	align-items: center;
 	width: 100%;
 	gap: 40px;
+	background: transparent !important;
 }
 
 /* TEXTO IZQUIERDA */
-.footer-left h3 {
-	margin: 0;
-	font-size: 0.8rem;
-	color: #717981;
-}
-
+.footer-left h3,
 .footer-left p {
 	margin: 0;
 	font-size: 0.8rem;
-	color: #717981;
+	color: #717981 !important;
 }
 
 /* ICONOS DERECHA */
@@ -3995,7 +3995,7 @@ input, select, textarea {
 
 /* LINKS */
 #footer a {
-	color: #717981;
+	color: #717981 !important;
 	border-bottom: none;
 }
 
@@ -4003,7 +4003,7 @@ input, select, textarea {
 	color: #18bfef !important;
 }
 
-/* ICONOS (estilo original limpio) */
+/* ICONOS */
 #footer ul.icons.alt li .icon:before {
 	box-shadow: inset 0 0 0 2px #e2e2e2;
 }
@@ -4012,14 +4012,36 @@ input, select, textarea {
 	box-shadow: inset 0 0 0 2px #18bfef;
 }
 
-/* BLOQUEO DE ESTRUCTURA VIEJA DE PLANTILLA */
+/* =========================
+   ELIMINAR ESTILO PLANTILLA
+========================= */
+
 #footer > section,
 #footer .split,
 #footer .contact {
 	display: none !important;
 }
 
-/* RESPONSIVE */
+/* =========================
+   GLOBAL BACKGROUND CLEAN
+========================= */
+
+#main {
+	background: transparent !important;
+}
+
+#wrapper {
+	background: transparent !important;
+}
+
+body {
+	background: transparent !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media screen and (max-width: 736px) {
 	.footer-row {
 		flex-direction: column;
@@ -4028,89 +4050,6 @@ input, select, textarea {
 		padding: 2rem;
 	}
 }
-
-		#copyright input, #copyright select, #copyright textarea {
-			color: #ffffff;
-		}
-
-		#copyright a {
-			color: #ffffff;
-			border-bottom-color: rgba(255, 255, 255, 0.5);
-		}
-
-			#copyright a:hover {
-				border-bottom-color: transparent;
-				color: #18bfef !important;
-			}
-
-		#copyright strong, #copyright b {
-			color: #ffffff;
-		}
-
-		#copyright h1, #copyright h2, #copyright h3, #copyright h4, #copyright h5, #copyright h6 {
-			color: #ffffff;
-		}
-
-		#copyright blockquote {
-			border-left-color: #ffffff;
-		}
-
-		#copyright code {
-			background: rgba(255, 255, 255, 0.075);
-			border-color: #ffffff;
-		}
-
-		#copyright hr {
-			border-bottom-color: #ffffff;
-		}
-
-		#copyright a {
-			color: inherit;
-			border-bottom-color: inherit;
-		}
-
-		#copyright ul {
-			list-style: none;
-			margin: 0;
-			padding-left: 0;
-		}
-
-			#copyright ul li {
-				border-left: solid 2px;
-				display: inline-block;
-				line-height: 1;
-				margin-left: 1rem;
-				padding-left: 1rem;
-			}
-
-				#copyright ul li:first-child {
-					border-left: 0;
-					margin-left: 0;
-					padding-left: 0;
-				}
-
-		@media screen and (max-width: 1280px) {
-
-			#copyright {
-				margin: 4rem auto;
-			}
-
-		}
-
-		@media screen and (max-width: 480px) {
-
-			#copyright ul li {
-				border-left: 0;
-				margin: 1rem 0 0 0;
-				padding-left: 0;
-				display: block;
-			}
-
-				#copyright ul li:first-child {
-					margin-top: 0;
-				}
-
-		}
 
 /* Nav Panel */
 
