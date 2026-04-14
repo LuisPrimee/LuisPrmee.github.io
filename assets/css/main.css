@@ -3946,109 +3946,35 @@ input, select, textarea {
 		}
 
 
-/* =========================
-   FOOTER BASE
-========================= */
-
-#footer {
-	background: transparent !important;
-	color: #717981;
-	width: 100%;
-	max-width: 72rem;
-	margin: 0 auto;
-	padding: 4rem 6rem;
-	position: relative;
-	z-index: 2;
-	display: block;
-	box-shadow: none !important;
-	border: none !important;
-}
-
-/* CONTENEDOR PRINCIPAL */
 .footer-row {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 100%;
-	gap: 40px;
-	background: transparent !important;
+	padding: 2rem 0;
 }
 
-/* TEXTO IZQUIERDA */
 .footer-left h3,
 .footer-left p {
 	margin: 0;
+	color: #717981;
 	font-size: 0.8rem;
-	color: #717981 !important;
 }
 
-/* ICONOS DERECHA */
 .footer-right ul {
 	display: flex;
-	gap: 16px;
+	gap: 15px;
 	list-style: none;
-	margin: 0;
 	padding: 0;
-	justify-content: flex-end;
-	align-items: center;
+	margin: 0;
 }
 
-/* LINKS */
 #footer a {
-	color: #717981 !important;
-	border-bottom: none;
+	color: #717981;
+	text-decoration: none;
 }
 
 #footer a:hover {
-	color: #18bfef !important;
-}
-
-/* ICONOS */
-#footer ul.icons.alt li .icon:before {
-	box-shadow: inset 0 0 0 2px #e2e2e2;
-}
-
-#footer ul.icons.alt li a.icon:hover:before {
-	box-shadow: inset 0 0 0 2px #18bfef;
-}
-
-/* =========================
-   ELIMINAR ESTILO PLANTILLA
-========================= */
-
-#footer > section,
-#footer .split,
-#footer .contact {
-	display: none !important;
-}
-
-/* =========================
-   GLOBAL BACKGROUND CLEAN
-========================= */
-
-#main {
-	background: transparent !important;
-}
-
-#wrapper {
-	background: transparent !important;
-}
-
-body {
-	background: transparent !important;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media screen and (max-width: 736px) {
-	.footer-row {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 20px;
-		padding: 2rem;
-	}
+	color: #18bfef;
 }
 
 /* Nav Panel */
