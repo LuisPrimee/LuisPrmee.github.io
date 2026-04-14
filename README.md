@@ -1,1 +1,1 @@
-# luispuchades.com
+# luispuchades.studio
