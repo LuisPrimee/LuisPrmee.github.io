@@ -4076,30 +4076,34 @@ body #wrapper #footer * {
 	}
 
 
-/* --- FIX VIDEO NÍTIDO --- */
-
-/* 1. Limpiamos el contenedor principal de cualquier efecto raro */
-#intro {
-    filter: none !important;
-    -webkit-filter: none !important;
-}
-
-/* 2. Matamos los efectos de "niebla" o degradados que trae la plantilla por defecto */
-#intro::before, 
-#intro::after {
-    display: none !important;
-    background: none !important;
-    filter: none !important;
-}
-
-/* 3. Aseguramos que el video no tenga transparencia ni filtros */
+/* VIDEO BACKGROUND */
 #bg-video {
-    filter: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    transform: none; /* ← ESTO era lo que borraba el vídeo */
 }
 
-/* 4. Limpiamos tu capa de overlay personalizada */
+/* OVERLAY DE LEGIBILIDAD */
 .intro-overlay {
-    display: none !important; /* Si quieres ver el video crudo, oculta esto */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+/* CONTENIDO ENCIMA DEL VÍDEO */
+#intro h1,
+#intro p,
+#intro .actions {
+    position: relative;
+    z-index: 2;
 }
