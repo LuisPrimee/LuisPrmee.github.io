@@ -3597,6 +3597,23 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 	}
 }
 
+/* Quitar desenfoque del contenedor */
+#intro {
+    filter: none !important;
+}
+
+/* Si la plantilla usa un pseudo-elemento para el efecto borroso, lo anulamos */
+#intro::before, 
+#intro::after {
+    display: none !important;
+}
+
+/* Asegurar que el video se vea nítido */
+#bg-video {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
 /* =========================
    NAV LIMPIO (SIN SOLAPAMIENTO)
 ========================= */
