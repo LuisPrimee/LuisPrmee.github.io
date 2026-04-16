@@ -3945,29 +3945,42 @@ input, select, textarea {
 
 		}
 
+/* =========================
+   FOOTER COMPACTO
+========================= */
 
+#footer {
+	padding: 1.5rem 2rem !important;
+	margin: 0 auto;
+	max-width: 72rem;
+}
+
+/* CONTENEDOR */
 .footer-row {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 2rem 0;
+	gap: 20px;
 }
 
+/* TEXTO */
 .footer-left h3,
 .footer-left p {
 	margin: 0;
-	color: #717981;
 	font-size: 0.8rem;
+	color: #717981;
 }
 
+/* ICONOS */
 .footer-right ul {
 	display: flex;
-	gap: 15px;
+	gap: 10px;
 	list-style: none;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
+/* LINKS */
 #footer a {
 	color: #717981;
 	text-decoration: none;
@@ -3976,6 +3989,16 @@ input, select, textarea {
 #footer a:hover {
 	color: #18bfef;
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 736px) {
+	.footer-row {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+}
+
 
 /* Nav Panel */
 
