@@ -3361,7 +3361,7 @@ body:not(.is-preload) #nav {
 
 /* BOTÓN / FLECHA: Centrado absoluto */
 #intro .actions {
-    margin-top: 3rem;
+    margin-top: 8rem;
     display: flex !important;
     justify-content: center !important;
     list-style: none !important;
