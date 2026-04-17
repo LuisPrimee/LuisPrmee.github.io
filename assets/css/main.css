@@ -3371,7 +3371,7 @@ body:not(.is-preload) #nav {
 /* Posicionamiento de la caja de la flecha */
 #intro .actions {
     position: absolute;   /* Se despega del texto y se mueve libre por el fondo */
-    bottom: 3rem;         /* La pega al borde inferior (ajusta a tu gusto) */
+    bottom: 1rem;         /* La pega al borde inferior (ajusta a tu gusto) */
     left: 0;
     right: 0;
     display: flex;
