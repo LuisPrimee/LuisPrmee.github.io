@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Contact — Cinematic Color Grading</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<style>
+
+		/* ── VARIABLES ──────────────────────────────────────────────── */
+		:root {
+			--bg:        #1e252d;
+			--accent:    #18bfef;
+			--border:    #eeeeee;
+			--muted:     #717981;
+			--font-body: "Merriweather", Georgia, serif;
+			--font-head: "Source Sans Pro", Helvetica, sans-serif;
+		}
+
+		/* ── BASE ───────────────────────────────────────────────────── */
+		*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+		body {
+			background-color: var(--bg);
+			font-family: var(--font-body);
+			font-weight: 300;
+			font-size: 1rem;
+			line-height: 2.375;
+			color: var(--muted);
+		}
+
+		html { font-size: 16pt; }
+		@media screen and (max-width: 1680px) { html { font-size: 12pt; } }
+		@media screen and (max-width: 1280px) { html { font-size: 11pt; } }
+		@media screen and (max-width:  360px) { html { font-size: 10pt; } }
+
+		h1, h2, h3 {
+			font-family: var(--font-head);
+			font-weight: 900;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #ffffff;
+		}
+		h1 { font-size: 4rem; line-height: 1.1; margin: 0 0 2rem 0; }
+
+		a {
+			color: var(--accent);
+			text-decoration: none;
+			border-bottom: dotted 1px rgba(24,191,239,0.4);
+			transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		}
+		a:hover { border-bottom-color: transparent; }
+
+		/* ── NAV ────────────────────────────────────────────────────── */
+		#nav {
+			display: flex;
+			background: transparent;
+			border-bottom: solid 2px rgba(255,255,255,0.1);
+			height: 4rem;
+			line-height: 4rem;
+			margin: 0 auto;
+			overflow: hidden;
+			padding: 0;
+			position: sticky;
+			top: 0;
+			width: calc(100% - 4rem);
+			max-width: 72rem;
+			z-index: 999;
+			transition: transform 1s ease, opacity 1s ease;
+		}
+
+		#nav ul.links {
+			display: flex;
+			flex-direction: row;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#nav ul.links li a {
+			display: block;
+			font-family: var(--font-head);
+			font-weight: 900;
+			font-size: 0.7rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #ffffff;
+			text-decoration: none;
+			border-bottom: none;
+			padding: 0 1.5rem;
+			height: 4rem;
+			line-height: 4rem;
+			transition: color 0.2s ease-in-out;
+		}
+
+		#nav ul.links li a:hover { color: var(--accent); }
+		#nav ul.links li.active { box-shadow: inset 0 -2px 0 0 var(--accent); }
+		#nav ul.links li.active a { color: #ffffff; }
+
+		/* ── HERO ───────────────────────────────────────────────────── */
+		#hero {
+			padding: 6rem 2.5rem 4rem;
+			max-width: 860px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.page-label {
+			display: inline-block;
+			font-family: var(--font-head);
+			font-weight: 900;
+			font-size: 0.6rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: var(--muted);
+			border: solid 2px var(--border);
+			padding: 0.35rem 0.85rem;
+			margin-bottom: 2rem;
+			opacity: 0;
+			animation: fadeUp 0.6s ease 0.1s forwards;
+		}
+
+		#hero h1 {
+			opacity: 0;
+			animation: fadeUp 0.6s ease 0.25s forwards;
+		}
+
+		#hero .subtitle {
+			font-size: 1rem;
+			line-height: 2.375;
+			color: var(--muted);
+			max-width: 500px;
+			margin: 0 auto;
+			text-align: center;
+			opacity: 0;
+			animation: fadeUp 0.6s ease 0.4s forwards;
+		}
+
+		/* ── SEPARADOR ──────────────────────────────────────────────── */
+		.section-rule {
+			border: 0;
+			border-bottom: solid 2px var(--border);
+			margin: 0 auto;
+			max-width: 72rem;
+			padding: 0 2rem;
+		}
+
+		/* ── FORMULARIO ─────────────────────────────────────────────── */
+		#contact-section {
+			max-width: 680px;
+			margin: 0 auto;
+			padding: 5rem 2rem 6rem;
+			opacity: 0;
+			animation: fadeUp 0.7s ease 0.55s forwards;
+		}
+
+		.form-row {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.form-group {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 1rem;
+		}
+
+		.form-group label {
+			font-family: var(--font-head);
+			font-weight: 900;
+			font-size: 0.6rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: var(--muted);
+			margin-bottom: 0.5rem;
+		}
+
+		.form-group input,
+		.form-group textarea {
+			background: transparent;
+			border: solid 2px var(--border);
+			color: #ffffff;
+			font-family: var(--font-body);
+			font-size: 0.85rem;
+			font-weight: 300;
+			padding: 0.75rem 1rem;
+			outline: none;
+			transition: border-color 0.2s ease-in-out;
+			-webkit-appearance: none;
+			appearance: none;
+		}
+
+		.form-group input::placeholder,
+		.form-group textarea::placeholder {
+			color: rgba(113,121,129,0.5);
+		}
+
+		.form-group input:focus,
+		.form-group textarea:focus {
+			border-color: var(--accent);
+		}
+
+		.form-group textarea {
+			resize: vertical;
+			min-height: 160px;
+			line-height: 1.8;
+		}
+
+		/* Botón — igual que .button del tema */
+		.btn-submit {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.6rem;
+			font-family: var(--font-head);
+			font-weight: 900;
+			font-size: 0.6rem;
+			letter-spacing: 0.075em;
+			text-transform: uppercase;
+			color: #ffffff;
+			background: transparent;
+			border: solid 2px var(--border);
+			padding: 0.75rem 2rem;
+			cursor: pointer;
+			transition: background-color 0.2s ease-in-out,
+			            border-color 0.2s ease-in-out,
+			            color 0.2s ease-in-out;
+			margin-top: 0.5rem;
+		}
+
+		.btn-submit:hover {
+			background-color: var(--accent);
+			border-color: var(--accent);
+			color: #ffffff;
+		}
+
+		/* ── FOOTER ─────────────────────────────────────────────────── */
+		#footer { border-top: solid 2px var(--border); }
+
+		.footer-inner {
+			max-width: 72rem;
+			margin: 0 auto;
+			padding: 1rem 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.footer-left h3,
+		.footer-left p {
+			margin: 0;
+			font-size: 0.8rem;
+			color: var(--muted);
+		}
+
+		.footer-icons {
+			display: flex;
+			gap: 10px;
+			list-style: none;
+		}
+
+		.footer-icons a {
+			color: var(--muted);
+			border-bottom: none;
+			font-size: 1rem;
+			transition: color 0.2s ease-in-out;
+		}
+		.footer-icons a:hover { color: var(--accent); }
+
+		/* ── ANIMACIONES ────────────────────────────────────────────── */
+		@keyframes fadeUp {
+			from { opacity: 0; transform: translateY(18px); }
+			to   { opacity: 1; transform: translateY(0); }
+		}
+
+		/* ── RESPONSIVE ─────────────────────────────────────────────── */
+		@media screen and (max-width: 736px) {
+			#nav { width: calc(100% - 2rem); }
+			#hero { padding: 5rem 1.5rem 3rem; }
+			h1 { font-size: 2.5rem; }
+			#contact-section { padding: 3rem 1.5rem 4rem; }
+			.form-row { grid-template-columns: 1fr; }
+			.footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+		}
+
+		@media screen and (max-width: 480px) {
+			h1 { font-size: 2rem; }
+		}
+
+	</style>
+</head>
+<body>
+
+	<!-- NAV -->
+	<nav id="nav">
+		<ul class="links">
+			<li><a href="index.html">Work</a></li>
+			<li class="active"><a href="contact.html">Contact</a></li>
+		</ul>
+	</nav>
+
+	<!-- HERO -->
+	<section id="hero">
+		<h1>Contact</h1>
+		<p class="subtitle">
+			Available for freelance projects and collaborations. Let's talk about your next piece.
+		</p>
+	</section>
+
+	<hr class="section-rule" />
+
+	<!-- FORMULARIO -->
+	<section id="contact-section">
+		<!--
+			Para recibir los mensajes en tu email sin backend, usa Formspree:
+			1. Regístrate en formspree.io
+			2. Crea un form y copia el ID
+			3. Sustituye TU_ID por ese ID
+		-->
+		<form action="https://formspree.io/f/TU_ID" method="POST">
+
+			<div class="form-row">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" placeholder="Your name" required />
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" placeholder="your@email.com" required />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="subject">Subject</label>
+				<input type="text" id="subject" name="subject" placeholder="Project type, collaboration..." />
+			</div>
+
+			<div class="form-group">
+				<label for="message">Message</label>
+				<textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+			</div>
+
+			<button type="submit" class="btn-submit">Send message</button>
+
+		</form>
+	</section>
+
+			<footer id="footer">
+				<div class="footer-row">
+					<div class="footer-left">
+						<h3>Contact</h3>
+						<p>puchadesluis@gmail.com</p>
+					</div>
+					<div class="footer-right">
+						<ul class="icons alt">
+							<li><a href="https://www.linkedin.com/in/luis-puchades-sanchez/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://vimeo.com/user234213642" target="_blank" class="icon brands alt fa-vimeo"><span class="label">Vimeo</span></a></li>
+							<li><a href="https://www.youtube.com/channel/UCR4lEZUgE2m-3378TOK-r_w" target="_blank" class="icon brands alt fa-youtube"><span class="label">YouTube</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
