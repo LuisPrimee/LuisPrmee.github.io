@@ -3602,8 +3602,8 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 ========================= */
 #nav {
 	display: flex;
-	background: #1e252d;
-	border-bottom: solid 2px #eeeeee;
+	background: transparent;
+	border-bottom: solid 2px rgba(255, 255, 255, 0.1);
 	height: 4rem;
 	line-height: 4rem;
 	margin: 0 auto;
@@ -3632,7 +3632,7 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 	font-size: 0.7rem;
 	letter-spacing: 0.075em;
 	text-transform: uppercase;
-	color: #212931;
+	color: #ffffff;
 	text-decoration: none;
 	border-bottom: none;
 	padding: 0 1.5rem;
