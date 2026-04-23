@@ -3538,7 +3538,7 @@ body:not(.is-preload) #nav {
 
 #header a:hover {
 	border-bottom-color: transparent;
-	color: #18bfef !important;
+	color: ffffff !important;
 }
 
 #header strong,
@@ -3642,15 +3642,15 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 }
 
 #nav ul.links li a:hover {
-	color: #18bfef;
+ color: #ffffff;
 }
 
 #nav ul.links li.active {
-	box-shadow: inset 0 -2px 0 0 #18bfef;
+	box-shadow: inset 0 -2px 0 0 #ffffff;
 }
 
 #nav ul.links li.active a {
-	color: #212931;
+	 color: #ffffff;
 }
 
 /* =========================
